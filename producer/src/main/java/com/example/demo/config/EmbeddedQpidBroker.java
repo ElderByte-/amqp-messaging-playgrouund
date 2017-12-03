@@ -7,8 +7,11 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * Configures and starts an Qpid Message Broker.
+ */
 @Configuration
-public class EmbeddedQpid {
+public class EmbeddedQpidBroker {
 
     @Value("${spring.rabbitmq.port}")
     private String amqpPort;
@@ -17,7 +20,7 @@ public class EmbeddedQpid {
     private String virtualHost;
 
 
-    public EmbeddedQpid() {
+    public EmbeddedQpidBroker() {
     }
 
     @PostConstruct
