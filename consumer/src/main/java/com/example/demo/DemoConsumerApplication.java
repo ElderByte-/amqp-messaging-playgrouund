@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 
 
 @SpringBootApplication
-public class DemoApplication {
+public class DemoConsumerApplication {
 
 	final static String queueName = "sample-queue";
 
@@ -54,6 +54,6 @@ public class DemoApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DemoConsumerApplication.class, args);
 	}
 }
