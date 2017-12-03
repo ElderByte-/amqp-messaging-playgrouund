@@ -25,9 +25,6 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-amqp')
-    compile("org.springframework:spring-messaging")
-
-    compile('org.springframework.amqp:spring-rabbit')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
