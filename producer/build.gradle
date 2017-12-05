@@ -1,7 +1,4 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.9.RELEASE'
-	}
 	repositories {
 		mavenCentral()
 	}
@@ -16,7 +13,7 @@ apply plugin: 'org.springframework.boot'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 9.0
 
 repositories {
 	mavenCentral()
