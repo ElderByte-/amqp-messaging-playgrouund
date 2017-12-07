@@ -14,21 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MessagingConfiguration {
 
-    public final static String queueName = "sample-queue";
-
-    @Bean
-    Queue queue() {
-        return new Queue(queueName, false);
-    }
-
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange("spring-boot-exchange");
-    }
-
-    @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(queueName);
+        return new TopicExchange("spring-boot-exchange", true, false);
     }
 
     @Bean

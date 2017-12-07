@@ -19,7 +19,7 @@ public class Producer {
 	}
 
 	public void send(SampleMessageDto msg) {
-		this.amqpTemplate.convertAndSend("sample-queue", msg);
+		this.amqpTemplate.convertAndSend("spring-boot-exchange", "sample.routing.key", msg);
 	}
 
 }
