@@ -11,13 +11,34 @@ import org.springframework.stereotype.Component;
 public class SampleMessageConsumer {
 
 	@RabbitListener(bindings = @QueueBinding(
-			value = @Queue(value = "sample-queue", durable = "true"),
+			value = @Queue(value = "sample-queue-image", durable = "true"),
 			exchange = @Exchange(value = "spring-boot-exchange", type = ExchangeTypes.TOPIC),
-			key = "sample.routing.key")
+			key = "sample.routing.key.image.#")
 	)
-	public void receiveMessage(SampleMessageDto message) {
-		System.out.println("Consumer Received <" + message + ">");
+	public void receiveMessageImage(SampleMessageDto message) {
+		System.out.println("receiveMessageImage <" + message + ">");
 	}
+
+	@RabbitListener(bindings = @QueueBinding(
+			value = @Queue(value = "sample-queue-video", durable = "true"),
+			exchange = @Exchange(value = "spring-boot-exchange", type = ExchangeTypes.TOPIC),
+			key = "sample.routing.key.video.#")
+	)
+	public void receiveMessageVideo(SampleMessageDto message) {
+		System.out.println("receiveMessageVideo <" + message + ">");
+	}
+
+	@RabbitListener(bindings = @QueueBinding(
+			value = @Queue(value = "sample-queue-pdf", durable = "true"),
+			exchange = @Exchange(value = "spring-boot-exchange", type = ExchangeTypes.TOPIC),
+			key = "sample.routing.key.document.pdf")
+	)
+	public void receiveMessagePdf(SampleMessageDto message) {
+		System.out.println("receiveMessagePdf <" + message + ">");
+	}
+
+
+
 }
 
 
