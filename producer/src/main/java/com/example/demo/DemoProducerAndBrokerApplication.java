@@ -16,17 +16,11 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class DemoProducerAndBrokerApplication {
 
-	final static String queueName = "sample-queue";
+	public final static String queueName = "sample-queue";
 
 	@Bean
 	Queue queue() {
 		return new Queue(queueName, false);
-	}
-
-
-	@Bean
-	MessageListenerAdapter listenerAdapter(Receiver receiver) {
-		return new MessageListenerAdapter(receiver, "receiveMessage");
 	}
 
 	@Bean
@@ -38,20 +32,6 @@ public class DemoProducerAndBrokerApplication {
 	Binding binding(Queue queue, TopicExchange exchange) {
 		return BindingBuilder.bind(queue).to(exchange).with(queueName);
 	}
-
-
-	@Bean
-	SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
-											 MessageListenerAdapter listenerAdapter) {
-		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-		container.setConnectionFactory(connectionFactory);
-		container.setQueueNames(queueName);
-		container.setMessageListener(listenerAdapter);
-		return container;
-	}
-
-
-
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoProducerAndBrokerApplication.class, args);

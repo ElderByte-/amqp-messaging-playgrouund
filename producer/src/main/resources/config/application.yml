@@ -1,4 +1,7 @@
 
+local.consumer.enabled: false
+
+
 spring:
   rabbitmq:
     port: 5672
