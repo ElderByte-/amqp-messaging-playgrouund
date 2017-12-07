@@ -14,30 +14,28 @@ public class Producer {
 
 	public void send() throws Exception {
 		send(
-				new SampleMessageDto("Sample Max Message", number++, 7.56464646),
-				"sample.routing.key.max"
-		);
+				new SampleMessageDto("Sample Max Message", number++, 7.56464646, "application/max"));
 
 		send(
-				new SampleMessageDto("Sample Image Message", number++, 7.56464646),
-				"sample.routing.key.image.jpeg"
-		);
+				new SampleMessageDto("Sample JPG Message", number++, 7.56464646, "image/jpg"));
 
 		send(
-				new SampleMessageDto("Sample Message", number++, 7.56464646),
-				"sample.routing.key.video.mp4"
-		);
+				new SampleMessageDto("Sample BMP Message", number++, 7.56464646, "image/bmp"));
 
 		send(
-				new SampleMessageDto("Sample PDF Message", number++, 7.56464646),
-				"sample.routing.key.document.pdf"
+				new SampleMessageDto("Sample Message", number++, 7.56464646, "video/mp4"));
+
+		send(
+				new SampleMessageDto("Sample PDF Message", number++, 7.56464646, "application/pdf")
 		);
 
 
 		System.out.println("PRODUC --->: Messages where sent to the Queue");
 	}
 
-	public void send(SampleMessageDto msg, String routingKey) {
+	public void send(SampleMessageDto msg) {
+		String[] typeParts =  msg.mimeType.split("/");
+		String routingKey = "sample.routing.key." + typeParts[0] + "." + typeParts[1];
 		this.amqpTemplate.convertAndSend("spring-boot-exchange", routingKey, msg);
 	}
 

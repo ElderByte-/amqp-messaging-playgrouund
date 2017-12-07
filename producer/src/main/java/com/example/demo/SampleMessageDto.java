@@ -6,12 +6,15 @@ public class SampleMessageDto {
     public int number;
     public double holy;
 
+    public String mimeType;
+
     public SampleMessageDto(){}
 
-    public SampleMessageDto(String name, int number, double holy) {
+    public SampleMessageDto(String name, int number, double holy, String mimeType) {
         this.name = name;
         this.number = number;
         this.holy = holy;
+        this.mimeType = mimeType;
     }
 
 

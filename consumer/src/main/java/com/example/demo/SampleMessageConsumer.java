@@ -31,7 +31,7 @@ public class SampleMessageConsumer {
 	@RabbitListener(bindings = @QueueBinding(
 			value = @Queue(value = "sample-queue-pdf", durable = "true"),
 			exchange = @Exchange(value = "spring-boot-exchange", type = ExchangeTypes.TOPIC),
-			key = "sample.routing.key.document.pdf")
+			key = "sample.routing.key.application.pdf")
 	)
 	public void receiveMessagePdf(SampleMessageDto message) {
 		System.out.println("receiveMessagePdf <" + message + ">");
