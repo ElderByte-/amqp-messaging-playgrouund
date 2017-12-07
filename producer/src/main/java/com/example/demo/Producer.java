@@ -1,9 +1,7 @@
 package com.example.demo;
 
-import javax.annotation.PostConstruct;
 
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,14 +11,14 @@ public class Producer {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 
+	private static int number = 1;
 
-	//@PostConstruct
 	public void send() throws Exception {
-		send("Sample message");
+		send(new SampleMessageDto("Sample Message", number++, 7.56464646));
 		System.out.println("PRODUC --->: Message was sent to the Queue");
 	}
 
-	public void send(String msg) {
+	public void send(SampleMessageDto msg) {
 		this.amqpTemplate.convertAndSend("sample-queue", msg);
 	}
 
