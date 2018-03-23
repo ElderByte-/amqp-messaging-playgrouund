@@ -26,21 +26,13 @@ repositories {
 
 
 dependencies {
-
+	
 	compile project(':qpid-broker-spring-cloud')
 
+	compile('org.springframework.boot:spring-boot-starter-web')
 
 	compile('org.springframework.boot:spring-boot-starter-amqp')
-
-    compile('org.springframework.boot:spring-boot-starter-web'){
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-    compile('org.springframework.boot:spring-boot-starter-jetty')
-
-
-
-
-    compile('org.springframework.amqp:spring-rabbit')
+	compile('org.springframework.amqp:spring-rabbit')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

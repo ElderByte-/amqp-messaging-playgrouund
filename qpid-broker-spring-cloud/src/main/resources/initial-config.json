@@ -5,7 +5,11 @@
     "name" : "local",
     "type" : "Plain",
     "secureOnlyMechanisms": [],
-    "users": [{"name": "guest", "password": "guest", "type": "managed"}]
+    "users": [{
+      "name": "guest",
+      "password": "guest",
+      "type": "managed"
+    }]
   } ],
   "ports" : [  {
     "name" : "AMQP",
@@ -21,6 +25,7 @@
       "name" : "HTTP",
       "port" : "${qpid.http_port}",
       "authenticationProvider" : "local",
+      "allowConfidentialOperationsOnInsecureChannels": "true",
       "protocols" : [ "HTTP" ]
     }],
   "virtualhostnodes" : [ {

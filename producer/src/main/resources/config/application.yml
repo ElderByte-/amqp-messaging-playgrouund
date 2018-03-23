@@ -2,8 +2,15 @@
 local.consumer.enabled: false
 
 server:
-    port: 8099
+    port: 8080
 
+# Embedded Qpid Broker
+qpid.embedded:
+  port: 5672
+  management.port: 8085
+  vhost: default
+
+# AMQP Connection to embedded qpid
 spring:
   rabbitmq:
     host: localhost
