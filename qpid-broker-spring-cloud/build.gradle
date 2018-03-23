@@ -37,10 +37,8 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.data:spring-data-commons")
-    compile('org.springframework.boot:spring-boot-starter-amqp')
-
-    compile('org.springframework.boot:spring-boot-starter-jetty')
+    // Spring Boot Core
+    compile('org.springframework.boot:spring-boot-starter')
 
     // Qpid embedded broker
     compile('org.apache.qpid:qpid-broker-core:7.0.2')
