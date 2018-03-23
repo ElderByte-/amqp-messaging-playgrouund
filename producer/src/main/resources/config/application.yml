@@ -2,13 +2,13 @@
 local.consumer.enabled: false
 
 server:
-    port: 8080
+    port: 8099
 
 spring:
   rabbitmq:
     host: localhost
     port: 5672
-    virtual-host: playground
+    virtual-host: default
     username: guest
     password: guest
 

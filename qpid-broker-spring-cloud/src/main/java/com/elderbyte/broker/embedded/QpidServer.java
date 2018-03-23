@@ -1,4 +1,4 @@
-package com.elderbyte.broker.tests;
+package com.elderbyte.broker.embedded;
 
 import com.elderbyte.broker.EnableEmbeddedBroker;
 import org.springframework.boot.SpringApplication;
@@ -7,15 +7,12 @@ import org.springframework.core.env.Environment;
 
 import java.net.UnknownHostException;
 
+
 @EnableEmbeddedBroker
 @SpringBootApplication
-public class SpringBootTestApp {
-
+public class QpidServer {
     public static void main(String[] args) throws UnknownHostException {
-
-        SpringApplication app = new SpringApplication(SpringBootTestApp.class);
+        SpringApplication app = new SpringApplication(QpidServer.class);
         Environment env = app.run(args).getEnvironment();
-
     }
-
 }
