@@ -26,11 +26,13 @@ repositories {
 
 
 dependencies {
-	
-	compile project(':qpid-broker-spring-cloud')
 
 	compile('org.springframework.boot:spring-boot-starter-web')
 
+	// Embeded AMQP Broker (Qpid)
+	compile('com.elderbyte.spring.boot:spring-boot-starter-qpid-embedded:0.0.1')
+
+	// AMQP Client
 	compile('org.springframework.boot:spring-boot-starter-amqp')
 	compile('org.springframework.amqp:spring-rabbit')
 

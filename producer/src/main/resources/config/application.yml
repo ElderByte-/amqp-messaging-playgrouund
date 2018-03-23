@@ -6,6 +6,7 @@ server:
 
 # Embedded Qpid Broker
 qpid.embedded:
+  enabled: true
   port: 5672
   management.port: 8085
   vhost: default

@@ -1,1 +1,1 @@
-include 'qpid-broker-spring-cloud', 'producer', 'consumer'
+include 'producer', 'consumer'
