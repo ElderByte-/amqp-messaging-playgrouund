@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.elderbyte.broker.config;
 
 import org.apache.qpid.server.Broker;
 import org.apache.qpid.server.BrokerOptions;
@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
  * Configures and starts an Qpid Message Broker.
  */
 @Configuration
-public class EmbeddedQpidBroker {
+public class EmbeddedQpidBrokerConfiguration {
 
     @Value("${spring.rabbitmq.port}")
     private String amqpPort;
@@ -20,7 +20,7 @@ public class EmbeddedQpidBroker {
     private String virtualHost;
 
 
-    public EmbeddedQpidBroker() {
+    public EmbeddedQpidBrokerConfiguration() {
     }
 
     @PostConstruct
@@ -41,5 +41,4 @@ public class EmbeddedQpidBroker {
             e.printStackTrace();
         }
     }
-
 }

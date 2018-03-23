@@ -33,7 +33,7 @@ public class Producer {
 		System.out.println("PRODUC --->: Messages where sent to the Queue");
 	}
 
-	public void send(SampleMessageDto msg) {
+	private void send(SampleMessageDto msg) {
 		String[] typeParts =  msg.mimeType.split("/");
 		String routingKey = "sample.routing.key." + typeParts[0] + "." + typeParts[1];
 		this.amqpTemplate.convertAndSend("spring-boot-exchange", routingKey, msg);

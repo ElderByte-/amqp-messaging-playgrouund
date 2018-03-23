@@ -26,13 +26,14 @@ repositories {
 
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-amqp')
+
+	compile project(':qpid-broker-spring-cloud')
+
+
+	compile('org.springframework.boot:spring-boot-starter-amqp')
     compile('org.springframework.boot:spring-boot-starter-web')
 
 	compile('org.springframework.amqp:spring-rabbit')
-
-	// Local embedded broker
-    compile('org.apache.qpid:qpid-broker:6.1.1')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

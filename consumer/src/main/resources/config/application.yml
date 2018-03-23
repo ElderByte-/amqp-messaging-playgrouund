@@ -1,8 +1,9 @@
 
 spring:
   rabbitmq:
+    host: localhost
     port: 5672
-    virtual-host: max
+    virtual-host: playground
     username: guest
     password: guest
 
