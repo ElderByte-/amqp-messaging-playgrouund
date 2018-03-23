@@ -5,6 +5,6 @@ task wrapper(type: Wrapper) {
 
 subprojects {
     ext {
-        springBootVersion = '2.0.0.M7'
+        springBootVersion = '2.0.0.RELEASE'
     }
 }
