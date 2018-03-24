@@ -13,9 +13,9 @@ public class SampleConsumer {
     private static final Logger log = LoggerFactory.getLogger(SampleConsumer.class);
 
 
-    @KafkaListener(groupId= "worker-", topics = "foobar")
+    @KafkaListener(groupId= "worker-group", topics = "foobar")
     public void onMessage(ConsumerRecord<String, SampleMessageDto> record){
 
-        log.info("GOT KAFKA RECORD: " + record.toString());
+        log.info("GOT KAFKA RECORD:: " + record.key() + ": " + record.value());
     }
 }
