@@ -10,7 +10,7 @@ import java.util.Random;
 public class SampleKafkaProducer {
 
 	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
+	private KafkaTemplate<String, Object> kafkaTemplate;
 
 	private static int number = 1;
 
@@ -42,7 +42,7 @@ public class SampleKafkaProducer {
 	}
 
 	private void send(SampleMessageDto msg) {
-		kafkaTemplate.send("foobar", msg.id + "", msg.name);
+		kafkaTemplate.send("foobar", msg.id + "", msg);
 	}
 
 }
