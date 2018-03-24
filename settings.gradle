@@ -1,1 +1,1 @@
-include 'amqp-producer', 'amqp-consumer'
+include 'amqp-producer', 'amqp-consumer', 'kafka-producer'

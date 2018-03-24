@@ -1,0 +1,6 @@
+
+local.consumer.enabled: false
+
+server:
+    port: 8080
+
