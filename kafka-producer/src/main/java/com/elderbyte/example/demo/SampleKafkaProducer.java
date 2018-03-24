@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
 @Component
 public class SampleKafkaProducer {
 
@@ -31,6 +33,12 @@ public class SampleKafkaProducer {
 
 
 		System.out.println("PRODUC --->: Messages where sent to the Queue");
+	}
+
+	public void sendBulk(int count){
+		for(int i = 0; i<count;i++){
+			send(new SampleMessageDto("Bulk Message " + i, number++, Math.random(), "woot"));
+		}
 	}
 
 	private void send(SampleMessageDto msg) {

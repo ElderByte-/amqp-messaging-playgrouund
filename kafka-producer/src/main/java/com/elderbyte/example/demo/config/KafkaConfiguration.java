@@ -47,7 +47,7 @@ public class KafkaConfiguration {
 
     @Bean
     public NewTopic topicBar() {
-        return new NewTopic("bar", 10, (short) 2);
+        return new NewTopic("bar", 10, (short) 1);
     }
 
 

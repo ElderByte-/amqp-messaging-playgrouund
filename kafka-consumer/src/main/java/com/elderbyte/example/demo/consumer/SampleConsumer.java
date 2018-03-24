@@ -12,7 +12,7 @@ public class SampleConsumer {
     private static final Logger log = LoggerFactory.getLogger(SampleConsumer.class);
 
 
-    @KafkaListener(id = "qux", topics = "foobar")
+    @KafkaListener(groupId= "worker-grp", topics = "foobar")
     public void onMessage(ConsumerRecord<?, ?> record){
 
         log.info("GOT KAFKA RECORD: " + record.toString());
