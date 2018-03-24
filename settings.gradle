@@ -1,1 +1,1 @@
-include 'producer', 'consumer'
+include 'amqp-producer', 'amqp-consumer'
