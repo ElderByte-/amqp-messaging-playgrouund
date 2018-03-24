@@ -59,6 +59,7 @@ public class KafkaConfiguration {
         Map<String, Object> props = new HashMap<>();
         props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, kafkaServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        props.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, "false");
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
         // See https://kafka.apache.org/documentation/#producerconfigs for more properties
         return props;
