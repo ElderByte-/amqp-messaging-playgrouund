@@ -1,7 +1,6 @@
 buildscript {
 	repositories {
 		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
 		maven { url "https://repo.spring.io/milestone" }
 	}
 	dependencies {
@@ -14,13 +13,13 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.example'
+group = 'com.elderbyte.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 9.0
 
 repositories {
 	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
+	maven { url  "http://dl.bintray.com/elderbyte/maven" }
 	maven { url "https://repo.spring.io/milestone" }
 }
 
@@ -30,7 +29,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 
 	// Embeded AMQP Broker (Qpid)
-	compile('com.elderbyte.spring.boot:spring-boot-starter-qpid-embedded:2.0.0.E1')
+	compile 'com.elderbyte.spring.boot:spring-boot-starter-qpid-embedded:2.0.0.E2'
 
 	// AMQP Client
 	compile('org.springframework.boot:spring-boot-starter-amqp')
