@@ -1,3 +1,7 @@
 
 local.consumer.enabled: false
 
+kafka.client:
+  _servers: localhost:9092
+  servers: cloud.securityvision.ch:9092
+

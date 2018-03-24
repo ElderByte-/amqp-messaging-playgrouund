@@ -1,6 +1,19 @@
 
 local.consumer.enabled: false
 
+
+
+kafka.client:
+  _servers: localhost:9092
+  servers: cloud.securityvision.ch:9092
+
+
+
+kafka.embedded:
+  enabled: false
+  port: 9092
+  partitions: 1
+
 server:
     port: 8080
 

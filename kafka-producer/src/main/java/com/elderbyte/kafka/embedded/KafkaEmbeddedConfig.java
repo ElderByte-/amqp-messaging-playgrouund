@@ -19,6 +19,8 @@ public class KafkaEmbeddedConfig {
     @Value("${kafka.embedded.port:9092}")
     public int kafkaPort;
 
+    @Value("${kafka.embedded.partitions:1}")
+    public int partitions;
 
     private KafkaEmbedded embedded;
 
@@ -28,7 +30,7 @@ public class KafkaEmbeddedConfig {
         log.info("Starting embedded kafka ...");
 
         try {
-            embedded = new KafkaEmbedded(1, false, 1);
+            embedded = new KafkaEmbedded(1, false, partitions);
             embedded.setKafkaPorts(kafkaPort);
             embedded.before();
             log.info("Embedded Kafka ready!");
