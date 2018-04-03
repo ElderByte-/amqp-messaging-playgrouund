@@ -1,6 +1,6 @@
 package com.elderbyte.example.demo;
 
-import com.elderbyte.kafka.embedded.EnableEmbeddedKafka;
+import com.elderbyte.kafka.EnableEmbeddedKafka;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

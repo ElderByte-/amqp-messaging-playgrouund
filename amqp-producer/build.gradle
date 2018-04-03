@@ -28,7 +28,7 @@ dependencies {
 
 	compile('org.springframework.boot:spring-boot-starter-web')
 
-	// Embeded AMQP Broker (Qpid)
+	// Embedded AMQP Broker (Qpid)
 	compile 'com.elderbyte.spring.boot:spring-boot-starter-qpid-embedded:2.0.0.E2'
 
 	// AMQP Client
