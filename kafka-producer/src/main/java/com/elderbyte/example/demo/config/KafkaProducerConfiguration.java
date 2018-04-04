@@ -1,6 +1,6 @@
 package com.elderbyte.example.demo.config;
 
-import com.elderbyte.kafka.serialisation.KafkaJsonSerializer;
+import com.elderbyte.kafka.config.KafkaJsonSerializer;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaConfiguration {
+public class KafkaProducerConfiguration {
 
     @Value("${kafka.client.servers}")
     private String kafkaServers;
@@ -41,7 +41,6 @@ public class KafkaConfiguration {
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServers);
         return new KafkaAdmin(configs);
     }
-
     @Bean
     public NewTopic topicFoobar() {
         return new NewTopic("foobar", 10, (short)1);
@@ -51,9 +50,6 @@ public class KafkaConfiguration {
     public NewTopic topicBar() {
         return new NewTopic("bar", 10, (short) 1);
     }
-
-
-
 
     private Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<>();

@@ -27,6 +27,9 @@ repositories {
 
 
 dependencies {
+
+	compile project(':spring-boot-starter-kafka')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 
 	// Embedded Kafka Server

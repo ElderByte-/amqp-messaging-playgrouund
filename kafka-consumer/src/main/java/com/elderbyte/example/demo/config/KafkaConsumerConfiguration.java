@@ -1,5 +1,6 @@
 package com.elderbyte.example.demo.config;
 
+import com.elderbyte.kafka.serialisation.KafkaJsonDeserializer;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaConfiguration {
+public class KafkaConsumerConfiguration {
 
     @Value("${kafka.client.servers}")
     private String kafkaServers;

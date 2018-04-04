@@ -1,7 +1,7 @@
 package com.elderbyte.example.demo.consumer;
 
 import com.elderbyte.example.demo.SampleMessageDto;
-import com.elderbyte.example.demo.config.JsonPayload;
+import com.elderbyte.kafka.serialisation.JsonPayload;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
