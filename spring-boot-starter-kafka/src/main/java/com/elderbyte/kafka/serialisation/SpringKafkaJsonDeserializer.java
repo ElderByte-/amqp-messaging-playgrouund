@@ -1,6 +1,5 @@
 package com.elderbyte.kafka.serialisation;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Deserializer;
@@ -14,15 +13,35 @@ import java.util.Map;
 public class SpringKafkaJsonDeserializer implements Deserializer<Json> {
 
 
-  private ObjectMapper objectMapper;
+  /***************************************************************************
+   *                                                                         *
+   * Fields                                                                  *
+   *                                                                         *
+   **************************************************************************/
 
-  /**
-   * Default constructor needed by Kafka
-   */
+  private final ObjectMapper objectMapper;
+
+  /***************************************************************************
+   *                                                                         *
+   * Constructors                                                            *
+   *                                                                         *
+   **************************************************************************/
+
+
   public SpringKafkaJsonDeserializer() {
-    this.objectMapper = new ObjectMapper();
-    this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    this(DefaultJsonMapper.buildDefaultMapper());
   }
+
+
+  public SpringKafkaJsonDeserializer(ObjectMapper mapper) {
+    this.objectMapper = mapper;
+  }
+
+  /***************************************************************************
+   *                                                                         *
+   * Public API                                                              *
+   *                                                                         *
+   **************************************************************************/
 
   @Override
   public void configure(Map<String, ?> props, boolean isKey) {
@@ -43,7 +62,7 @@ public class SpringKafkaJsonDeserializer implements Deserializer<Json> {
     }
   }
 
-
   @Override
   public void close() { }
+
 }

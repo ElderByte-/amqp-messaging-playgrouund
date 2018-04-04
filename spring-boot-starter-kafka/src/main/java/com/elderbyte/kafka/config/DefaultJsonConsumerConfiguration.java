@@ -21,6 +21,9 @@ public class DefaultJsonConsumerConfiguration {
     @Autowired
     private KafkaClientConfig config;
 
+    @Autowired
+    private SpringKafkaJsonDeserializer springKafkaJsonDeserializer;
+
     @Bean
     public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Json>>
     kafkaListenerContainerFactory() {
@@ -35,7 +38,7 @@ public class DefaultJsonConsumerConfiguration {
     public ConsumerFactory<String, Json> consumerFactory() {
         DefaultKafkaConsumerFactory<String, Json> factory = new DefaultKafkaConsumerFactory<>(consumerConfigs());
         factory.setKeyDeserializer(new StringDeserializer());
-        factory.setValueDeserializer(new SpringKafkaJsonDeserializer());
+        factory.setValueDeserializer(springKafkaJsonDeserializer);
 
         return factory;
     }

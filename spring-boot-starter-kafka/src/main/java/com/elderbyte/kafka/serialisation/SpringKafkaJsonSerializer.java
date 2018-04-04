@@ -1,7 +1,6 @@
 package com.elderbyte.kafka.serialisation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;
 
@@ -12,15 +11,34 @@ import java.util.Map;
  */
 public class SpringKafkaJsonSerializer implements Serializer<Object> {
 
-  private ObjectMapper objectMapper;
+  /***************************************************************************
+   *                                                                         *
+   * Fields                                                                  *
+   *                                                                         *
+   **************************************************************************/
 
-  /**
-   * Default constructor needed by Kafka
-   */
+  private final ObjectMapper objectMapper;
+
+  /***************************************************************************
+   *                                                                         *
+   * Constructors                                                            *
+   *                                                                         *
+   **************************************************************************/
+
   public SpringKafkaJsonSerializer() {
-    this.objectMapper = new ObjectMapper();
-    this.objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+    this(DefaultJsonMapper.buildDefaultMapper());
   }
+
+
+  public SpringKafkaJsonSerializer(ObjectMapper mapper) {
+    this.objectMapper = mapper;
+  }
+
+  /***************************************************************************
+   *                                                                         *
+   * Public API                                                              *
+   *                                                                         *
+   **************************************************************************/
 
   @Override
   public void configure(Map<String, ?> config, boolean isKey) {

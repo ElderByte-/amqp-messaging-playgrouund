@@ -27,7 +27,6 @@ public class Json {
         }catch (Exception e){
             throw new RuntimeException("Failed to deserialize bytes into JSON", e);
         }
-
     }
 
     public static Json from(ObjectMapper objectMapper, JsonNode node){

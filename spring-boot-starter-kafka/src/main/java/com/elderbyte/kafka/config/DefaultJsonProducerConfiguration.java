@@ -19,11 +19,14 @@ public class DefaultJsonProducerConfiguration {
     @Autowired
     private KafkaClientConfig config;
 
+    @Autowired
+    private SpringKafkaJsonSerializer springKafkaJsonSerializer;
+
     @Bean
     public ProducerFactory<String, Object> producerFactory() {
         DefaultKafkaProducerFactory<String, Object> factory = new DefaultKafkaProducerFactory<>(producerConfigs());
         factory.setKeySerializer(new StringSerializer());
-        factory.setValueSerializer(new SpringKafkaJsonSerializer());
+        factory.setValueSerializer(springKafkaJsonSerializer);
         return factory;
     }
 

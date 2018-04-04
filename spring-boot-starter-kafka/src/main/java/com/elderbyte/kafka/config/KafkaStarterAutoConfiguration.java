@@ -1,6 +1,10 @@
 package com.elderbyte.kafka.config;
 
+import com.elderbyte.kafka.serialisation.SpringKafkaJsonDeserializer;
+import com.elderbyte.kafka.serialisation.SpringKafkaJsonSerializer;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.admin.AdminClientConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -13,9 +17,22 @@ import java.util.Map;
 @Import( { DefaultJsonProducerConfiguration.class, DefaultJsonConsumerConfiguration.class })
 public class KafkaStarterAutoConfiguration {
 
+    @Autowired
+    private ObjectMapper mapper;
+
     @Bean
     public KafkaClientConfig kafkaClientConfig(){
         return new KafkaClientConfig();
+    }
+
+    @Bean
+    public SpringKafkaJsonDeserializer springKafkaJsonDeserializer(){
+        return new SpringKafkaJsonDeserializer(mapper);
+    }
+
+    @Bean
+    public SpringKafkaJsonSerializer springKafkaJsonSerializer(){
+        return new SpringKafkaJsonSerializer(mapper);
     }
 
     @Bean
