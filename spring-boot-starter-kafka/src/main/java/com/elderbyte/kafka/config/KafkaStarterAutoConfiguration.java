@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@Import(DefaultJsonProducerConfiguration.class)
+@Import( { DefaultJsonProducerConfiguration.class, DefaultJsonConsumerConfiguration.class })
 public class KafkaStarterAutoConfiguration {
 
     @Bean
