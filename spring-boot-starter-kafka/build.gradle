@@ -27,10 +27,13 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-web')
 
-	// Embedded Kafka Server
-	compile 'com.elderbyte.spring.boot:spring-boot-starter-kafka-embedded:2.0.0.E2'
+	// Basic Spring Boot
+	compile('org.springframework.boot:spring-boot-starter')
+
+	// Jackson (version managed by Spring Boot)
+	compile('com.fasterxml.jackson.core:jackson-core')
+	compile('com.fasterxml.jackson.core:jackson-databind')
 
 	// Kafka Client
 	compile('org.springframework.kafka:spring-kafka')
