@@ -28,15 +28,14 @@ repositories {
 
 dependencies {
 
-	compile project(':spring-boot-starter-kafka')
-
 	compile('org.springframework.boot:spring-boot-starter-web')
 
-	// Embedded Kafka Server
-	compile 'com.elderbyte.spring.boot:spring-boot-starter-kafka-embedded:2.0.0.E2'
+    compile project(':spring-boot-starter-kafka')
+    // Kafka Client
+    compile('org.springframework.kafka:spring-kafka')
 
-	// Kafka Client
-	compile('org.springframework.kafka:spring-kafka')
+    // Embedded Kafka Server
+	compile 'com.elderbyte.spring.boot:spring-boot-starter-kafka-embedded:2.0.0.E2'
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

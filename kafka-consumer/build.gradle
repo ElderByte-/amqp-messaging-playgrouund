@@ -26,14 +26,9 @@ repositories {
 
 
 dependencies {
-
-	compile project(':spring-boot-starter-kafka')
-
     compile('org.springframework.boot:spring-boot-starter')
 
-	// Kafka
-	compile('org.springframework.kafka:spring-kafka')
-	compile('org.springframework.kafka:spring-kafka-test')
+    compile project(':spring-boot-starter-kafka')
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
