@@ -30,8 +30,8 @@ dependencies {
 
 	compile('org.springframework.boot:spring-boot-starter-web')
 
-    compile project(':spring-boot-starter-kafka')
     // Kafka Client
+    compile("com.elderbyte.spring.boot:spring-boot-starter-kafka:${kafkaStarterVersion}")
     compile('org.springframework.kafka:spring-kafka')
 
     // Embedded Kafka Server

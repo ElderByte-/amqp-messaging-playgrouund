@@ -1,1 +1,1 @@
-include 'amqp-producer', 'amqp-consumer', 'spring-boot-starter-kafka', 'kafka-producer', 'kafka-consumer'
+include 'amqp-producer', 'amqp-consumer', 'kafka-producer', 'kafka-consumer'
