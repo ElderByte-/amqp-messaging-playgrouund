@@ -20,13 +20,13 @@ public class SpringKafkaJsonDeserializer implements Deserializer<JsonPayload> {
    * Default constructor needed by Kafka
    */
   public SpringKafkaJsonDeserializer() {
-
+    this.objectMapper = new ObjectMapper();
+    this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
   }
 
   @Override
   public void configure(Map<String, ?> props, boolean isKey) {
-    this.objectMapper = new ObjectMapper();
-    this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+    // NOP
   }
 
 

@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Serialize objects to UTF-8 JSON. This works with any object which is serializable with Jackson.
  */
-public class SpringKafkaJsonSerializer<T> implements Serializer<T> {
+public class SpringKafkaJsonSerializer implements Serializer<Object> {
 
   private ObjectMapper objectMapper;
 
@@ -18,18 +18,18 @@ public class SpringKafkaJsonSerializer<T> implements Serializer<T> {
    * Default constructor needed by Kafka
    */
   public SpringKafkaJsonSerializer() {
-
-  }
-
-  @Override
-  public void configure(Map<String, ?> config, boolean isKey) {
     this.objectMapper = new ObjectMapper();
     this.objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
   }
 
+  @Override
+  public void configure(Map<String, ?> config, boolean isKey) {
+    // NOP
+  }
+
 
   @Override
-  public byte[] serialize(String topic, T data) {
+  public byte[] serialize(String topic, Object data) {
     if (data == null) {
       return null;
     }
