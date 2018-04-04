@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Generic JSON deserializer.
  */
-public class SpringKafkaJsonDeserializer implements Deserializer<JsonPayload> {
+public class SpringKafkaJsonDeserializer implements Deserializer<Json> {
 
 
   private ObjectMapper objectMapper;
@@ -31,13 +31,13 @@ public class SpringKafkaJsonDeserializer implements Deserializer<JsonPayload> {
 
 
   @Override
-  public JsonPayload deserialize(String ignored, byte[] bytes) {
+  public Json deserialize(String ignored, byte[] bytes) {
     if (bytes == null || bytes.length == 0) {
-      return JsonPayload.Empty;
+      return Json.Empty;
     }
 
     try {
-      return JsonPayload.from(objectMapper, bytes);
+      return Json.from(objectMapper, bytes);
     } catch (Exception e) {
       throw new SerializationException(e);
     }
