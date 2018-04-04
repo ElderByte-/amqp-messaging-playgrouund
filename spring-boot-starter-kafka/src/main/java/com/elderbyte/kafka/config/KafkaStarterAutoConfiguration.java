@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaConfiguration {
+public class KafkaStarterAutoConfiguration {
 
     @Value("${kafka.client.servers}")
     private String kafkaServers;

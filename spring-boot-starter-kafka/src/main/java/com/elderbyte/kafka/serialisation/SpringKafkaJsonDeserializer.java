@@ -1,6 +1,5 @@
 package com.elderbyte.kafka.serialisation;
 
-import com.elderbyte.kafka.serialisation.JsonPayload;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.errors.SerializationException;
@@ -12,7 +11,7 @@ import java.util.Map;
 /**
  * Generic JSON deserializer.
  */
-public class KafkaJsonDeserializer implements Deserializer<JsonPayload> {
+public class SpringKafkaJsonDeserializer implements Deserializer<JsonPayload> {
 
 
   private ObjectMapper objectMapper;
@@ -20,7 +19,7 @@ public class KafkaJsonDeserializer implements Deserializer<JsonPayload> {
   /**
    * Default constructor needed by Kafka
    */
-  public KafkaJsonDeserializer() {
+  public SpringKafkaJsonDeserializer() {
 
   }
 

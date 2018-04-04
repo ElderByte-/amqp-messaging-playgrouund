@@ -1,8 +1,7 @@
 package com.elderbyte.example.demo.config;
 
-import com.elderbyte.kafka.config.KafkaJsonSerializer;
+import com.elderbyte.kafka.serialisation.SpringKafkaJsonSerializer;
 import org.apache.kafka.clients.CommonClientConfigs;
-import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
-import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
@@ -21,7 +19,7 @@ import java.util.Map;
 public class KafkaProducerConfiguration {
 
     @Value("${kafka.client.servers}")
-    private String kafkaServers;
+    private String kafkaServers; // TODO Replace with starter kafka config handler
 
 
     @Bean
@@ -36,12 +34,6 @@ public class KafkaProducerConfiguration {
 
 
     @Bean
-    public KafkaAdmin admin() {
-        Map<String, Object> configs = new HashMap<>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaServers);
-        return new KafkaAdmin(configs);
-    }
-    @Bean
     public NewTopic topicFoobar() {
         return new NewTopic("foobar", 10, (short)1);
     }
@@ -55,7 +47,7 @@ public class KafkaProducerConfiguration {
         Map<String, Object> props = new HashMap<>();
         props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, kafkaServers);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaJsonSerializer.class);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, SpringKafkaJsonSerializer.class);
         // See https://kafka.apache.org/documentation/#producerconfigs for more properties
         return props;
     }

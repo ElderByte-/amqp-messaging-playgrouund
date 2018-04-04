@@ -1,6 +1,6 @@
 package com.elderbyte.example.demo.config;
 
-import com.elderbyte.kafka.serialisation.KafkaJsonDeserializer;
+import com.elderbyte.kafka.serialisation.SpringKafkaJsonDeserializer;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -42,7 +42,7 @@ public class KafkaConsumerConfiguration {
         Map<String, Object> props = new HashMap<>();
         props.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, kafkaServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaJsonDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, SpringKafkaJsonDeserializer.class);
         return props;
     }
 }

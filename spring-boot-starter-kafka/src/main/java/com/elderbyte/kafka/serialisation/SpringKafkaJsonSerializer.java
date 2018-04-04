@@ -1,4 +1,4 @@
-package com.elderbyte.kafka.config;
+package com.elderbyte.kafka.serialisation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -10,14 +10,14 @@ import java.util.Map;
 /**
  * Serialize objects to UTF-8 JSON. This works with any object which is serializable with Jackson.
  */
-public class KafkaJsonSerializer<T> implements Serializer<T> {
+public class SpringKafkaJsonSerializer<T> implements Serializer<T> {
 
   private ObjectMapper objectMapper;
 
   /**
    * Default constructor needed by Kafka
    */
-  public KafkaJsonSerializer() {
+  public SpringKafkaJsonSerializer() {
 
   }
 
