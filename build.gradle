@@ -6,6 +6,6 @@ task wrapper(type: Wrapper) {
 subprojects {
     ext {
         springBootVersion = '2.0.0.RELEASE'
-        kafkaStarterVersion = '2.0.0.E5'
+        kafkaStarterVersion = '2.0.0.E6'
     }
 }

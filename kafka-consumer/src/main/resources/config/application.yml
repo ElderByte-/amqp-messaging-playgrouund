@@ -5,7 +5,8 @@ kafka.client:
   servers: localhost:9092
   consumer:
     enabled: true
-    concurrency: 3
+    autoCommit: false
+    concurrency: 1
     pollTimeout: 3000
-    maxPollRecords: 10
+    maxPollRecords: 20
 
