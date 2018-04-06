@@ -3,5 +3,9 @@ local.consumer.enabled: true
 
 kafka.client:
   servers: localhost:9092
-  #servers: cloud.securityvision.ch:9092
+  consumer:
+    enabled: true
+    concurrency: 3
+    pollTimeout: 3000
+    maxPollRecords: 10
 
